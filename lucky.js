@@ -50,22 +50,9 @@ function load() {
 
 function loadResyRestaurants() {
   var market = 'ny';
-  var url = 'https://platform.resy.com/1/reservation/find/' + market;
-  $.ajax({
-    url: url,
-    dataType: 'json',
-    type: 'GET',
-    beforeSend: function (request) {
-      request.setRequestHeader("Authorization", "PlatformAPI client_id=\"" + resyClientId + "\"");
-    },
-    error: function(data) {
-      debug('Error: ' + JSON.stringify(data));
-      debug('Sleeping for 60 seconds...');
-      setTimeout('loadTrending(' + shouldSwitchVenue + ')', 1000*60);
-    },
-    success: function(data) {
+  var url = 'https://platform.resy.com/1/reservation/find/' + market + "?callback=?";
+  $.getJSON(url, function(data) {
       debug(data);
-    }
   });
 }
         
