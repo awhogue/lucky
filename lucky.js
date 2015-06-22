@@ -45,5 +45,5 @@ function getToken() {
 }
 
 function load() {
-  oathResy();
+  oauthResy();
 }
