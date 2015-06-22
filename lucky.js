@@ -51,8 +51,20 @@ function load() {
 function loadResyRestaurants() {
   var market = 'ny';
   var url = 'https://platform.resy.com/1/reservation/find/' + market;
-  $.getJSON(url, function(data) {
+  $.ajax({
+    url: url,
+    dataType: 'json',
+    type: 'GET',
+        headers: {
+        "Authorization": "PlatformAPI client_id=\"" + resyClientId + "\"",
+          "Access-Control-Allow-Origin": "true"  
+          },
+    error: function(data) {
+      debug('Error: ' + JSON.stringify(data));
+    },
+    success: function(data) {
       debug(data);
+    }
   });
 }
         
