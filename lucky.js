@@ -55,10 +55,9 @@ function loadResyRestaurants() {
     url: url,
     dataType: 'json',
     type: 'GET',
-        headers: {
-        "Authorization": "PlatformAPI client_id=\"" + resyClientId + "\"",
-          "Access-Control-Allow-Origin": "true"  
-          },
+    beforeSend: function(request) {
+      "Authorization": "PlatformAPI client_id=\"" + resyClientId + "\"",
+    },
     error: function(data) {
       debug('Error: ' + JSON.stringify(data));
     },
