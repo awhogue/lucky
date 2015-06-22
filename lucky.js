@@ -50,7 +50,7 @@ function load() {
 
 function loadResyRestaurants() {
   var market = 'ny';
-  var url = 'https://platform.resy.com/1/reservation/find/' + market + "?callback=?";
+  var url = 'https://platform.resy.com/1/reservation/find/' + market;
   $.getJSON(url, function(data) {
       debug(data);
   });
